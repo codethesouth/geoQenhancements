@@ -1,1 +1,1 @@
-Proto type application for tracking emergency vehicles and sending site information directly to first responders.
+Prototype application for tracking emergency vehicles and sending site information directly to first responders.
