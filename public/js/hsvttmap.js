@@ -62,11 +62,12 @@ HSV_TT.map.init = function() {
     accessToken: 'pk.eyJ1IjoiaHN2dHJhbnNpdCIsImEiOiJjaWd4NXR5bDcwdWdiNjVtMHJqajByZ2FwIn0.MGnCx-SYksm4Ia8-4CoWMg'
   }).addTo(map);
 
-  var overlayMaps = HSV_TT.map.createRouteLayers(routeNames);
+  //var overlayMaps = HSV_TT.map.createRouteLayers(routeNames);
   // TODO this is ackward - change at some point ------
-  overlayMaps['Downtown'].bindPopup("<b>Entertainment Trolley Route</b>" +
-                     "<br><b>Hours of Operation:</b> 5pm to 12am Fridays and Saturdays");
+  //overlayMaps['Downtown'].bindPopup("<b>Entertainment Trolley Route</b>" +
+  //                   "<br><b>Hours of Operation:</b> 5pm to 12am Fridays and Saturdays");
   //---------------------------------------------------
+  /*
   var stops = L.geoJson(HSV_TT.ui.getStops('Downtown'), {    
     pointToLayer: function( feature, latlng ) {
       return L.marker(latlng, {icon: new stopIcon()});
@@ -80,6 +81,7 @@ HSV_TT.map.init = function() {
    stops.addTo(map);
    map.addLayer(overlayMaps['Downtown']); // will work with an array of route names
    L.control.locate().addTo(map);
+   */
    //HSV_TT.map.nextStopMark([34.73146324046631,-86.58602399965186]);
    
    // Full sytem  ---  TODO
@@ -102,20 +104,20 @@ HSV_TT.map.init = function() {
    });
    */
    // Record clicks-----------------------
-   //   map.on('click', HSV_TT.map.onMapClick);
+      map.on('click', HSV_TT.map.onMapClick);
    //----------------------------------end   
 }
 
-//HSV_TT.map.onMapClick = function(e) {
-//   console.log("[" + e.latlng.lat + "," + e.latlng.lng + "]");
-//}
+HSV_TT.map.onMapClick = function(e) {
+   console.log("[" + e.latlng.lat + "," + e.latlng.lng + "]");
+}
 
 HSV_TT.map.recenterMap = function(lngLat) {
 	//DEBUG console.log('long: ' + lngLat[0] + ' lat: ' + lngLat[1]);
 	map.panTo(new L.LatLng(lngLat[1], lngLat[0]));
 	HSV_TT.map.stopLocateMark(lngLat);
 }
-
+/*
 HSV_TT.map.stopLocateMark = function(lngLat) {
   if (stopLocationCircle) {
     map.removeLayer(stopLocationCircle);
@@ -126,7 +128,8 @@ HSV_TT.map.stopLocateMark = function(lngLat) {
     fillOpacity: 0.8
   }).addTo(map);
 }
-
+*/
+/*
 HSV_TT.map.nextStopMark = function(lngLat) {
   if (nextStopMark) {
     map.removeLayer(nextStopMark);
@@ -137,12 +140,13 @@ HSV_TT.map.nextStopMark = function(lngLat) {
     fillOpacity: 0.8
   }).addTo(map);
 }
-
+*/
+/*
 function getStopBounds(pnt){
 	return rtnBounds = [ [pnt[1]+.00018,pnt[0]-.00018],[pnt[1]+.00018,pnt[0]+.00018],
 	                     [pnt[1]-.00018,pnt[0]+.00018],[pnt[1]-.00018,pnt[0]-.00018] ]
 };
-
+*/
 HSV_TT.map.updateLocationMarker = function (vid, latlng) {
 	//console.log("Bus number: " + vid + " has new location: " + latlng.lat +", " + latlng.lng);
 	var mm = HSV_TT.getBusMapMarker(vid); 
@@ -171,7 +175,7 @@ HSV_TT.map.removeLocationMarker = function(vid) {
 	  map.removeLayer(mm);
 	}
 }
-
+/*
 HSV_TT.map.createRouteLayers = function(routeNames) {
 	var obj = {};
 	for (var i = 0; i < routeNames.length; i++) {
@@ -193,7 +197,8 @@ HSV_TT.map.createRouteLayers = function(routeNames) {
 	//DEBUG console.log('layers: ' + obj.length);;
 	return obj;
 }
-
+*/
+/*
 // this function does not order the routes correctly don't use
 HSV_TT.map.getRouteNames = function() {
   var flags = [], output = [], l = allRoutes.features.length, i;
@@ -204,3 +209,4 @@ HSV_TT.map.getRouteNames = function() {
   }
   console.log('Names: ' + output);
 }
+*/

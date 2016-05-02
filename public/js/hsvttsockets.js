@@ -24,9 +24,9 @@ HSV_TT.sockets.init = function() {
   function receiveUpdates() {
     console.log('Initializing location updates');
 	socket.on('made connect', function(data) {
-	  console.log(data.greet + ', next stop is: ' + data.nextSeq);
+	  //console.log(data.greet + ', next stop is: ' + data.nextSeq);
 	  console.log("---> url: " + window.location.href);
-      HSV_TT.ui.setNextStop(data.nextSeq, data.route, data.id);	  
+      //HSV_TT.ui.setNextStop(data.nextSeq, data.route, data.id);	  
 	});
     socket.on('location update', function(data) {
       console.log('New locations received: ' + JSON.stringify(data));
@@ -43,7 +43,7 @@ HSV_TT.sockets.init = function() {
 	socket.on('next stop', function(data) {
 	  if (data) {
 		console.log("next stop changed: " + data.seq + " : " + data.route + " : " + data.id);
-	    HSV_TT.ui.setNextStop(data.seq, data.route, data.id);
+	    //HSV_TT.ui.setNextStop(data.seq, data.route, data.id);
 	  }
 	});
   }
@@ -53,6 +53,7 @@ HSV_TT.sockets.init = function() {
   function updateLocation() {
     if( /*trolleyOn*/ true ) {
       socket.emit('get location');
+	  
     }
     //console.log('Location request sent');
   };
