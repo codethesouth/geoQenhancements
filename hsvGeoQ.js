@@ -17,22 +17,7 @@ var possibleSkip = false;
 
 //ALL the vehicles
 var vehicles = [];
-
-//edit
-
-
-//Setup DB
-mongoose.connect('mongodb://' + process.env.MONGO_USERNAME + ':' + process.env.MONGO_PASSWORD + '@ds053164.mongolab.com:53164/hsvtransit');
-
-//Shuttle/trolly/auto DB setup
-var transitSchema = new mongoose.Schema({
-	id: Number,
-	long: Number,
-	lat: Number,
-});
-var Transit = mongoose.model('Transit', transitSchema);
-
-var allLocations = [];
+//var allLocations = [];
 
 //Event DB structure
 var eventSchema = new mongoose.Schema({
@@ -123,16 +108,6 @@ app.post('/api/v1/account', function(req, res) {
 	});
 });
 
-//Reads account ----- TOBE REMOVED -----------------
-//Updates account
-//app.post('/api/v1/account/:id', function(req, res) {
-//	res.send('Hello world!');
-//});
-
-//Reads account ----- TOBE REMOVED -----------------
-//app.get('/api/v1/account/:id', function(req, res) {
-//	res.send('Hello world!');
-//});
 
 //Adds location
 app.post('/api/v1/trolly/:id/location', function(req, res) {
@@ -185,23 +160,12 @@ app.post('/api/v1/trolly/:id/location', function(req, res) {
   */
 });
 
-//Reads account ----- TOBE REMOVED -----------------
-//Reads location
-//app.get('/api/v1/trolly/:id/location', function(req, res) {
-//	res.send('Hello world!');
-//});
 
-//Reads account ----- TOBE REMOVED -----------------
-//Gets status of trollies
-//app.get('/api/v1/trollies', function(req, res) {
-//	res.send('Hello world!');
-//});
-
-//Reads account ----- TOBE REMOVED -----------------
-//Gets stops for a single trolley
-//app.get('/api/v1/trollies/:id/stops', function(req, res) {
-//	res.send('Hello world!');
-//});
+//Reads locations of vehicles
+app.get('/api/v1/vehicle/locations', function(req, res) {
+	var rdata = JSON.stringify(vehicles);
+	res.send(rdata);
+});
 
 var latLng = [];
 var locations;
@@ -259,28 +223,7 @@ function checkStops(curPnt) {
 	}
 }
 
-//var interval = setInterval(function(){findLocations();},3000);
-/*// TOBE REMOVED --------------------------------------------------
-function checkTime() {
-  // TODO: REPLACE this function with isTrolleyInactive();
-  // would like to extend this to start at 4pm and end at 1am following morning... of course
-  // that complicates the testing
-  var trolleyInactive = true;
-  var date = new Date();
-  date.setHours(date.getHours());
-  //console.log("hour: " + date.getHours() + ", day: " + date.getDay());
-  if ( date.getHours() <= 24 && date.getHours() >= 17  ) {
-    if ( 5 == date.getDay() || 6 == date.getDay() ) {
-      trolleyInactive = false;
-    } else {
-      trolleyInactive = true;
-    }
-  } else {
-    trolleyInactive = true;
-  }
-  return trolleyInactive;
-}
---------------------------------------------------------------------*/
+
 function locationRecieved(data) {
   var returnStr = "location socket called: ";
   var transitId = data.id;

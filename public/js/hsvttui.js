@@ -40,6 +40,7 @@ HSV_TT.ui.showNotAvail = function() {
 
 };
 // I think we need a HSV_TT.data javascript js... of data manipulation functions the two function below should go there...
+/*
 HSV_TT.ui.setNextStop = function(seqNum, routeName, busId) {
 	routeName = (routeName) ? routeName : 'Downtown';
 	busId = (busId) ? busId : 0;
@@ -52,7 +53,8 @@ HSV_TT.ui.setNextStop = function(seqNum, routeName, busId) {
     //HSV_TT.map.nextStopMark(stopTable[seqNum-1].geometry.coordinates); //disable until we make it smoother
 	//
 }
-
+*/
+/*
 HSV_TT.ui.getStops = function(routename) {
 	var _stops = $.grep(allStops.features, function(o, i) {
 		return o.properties.RouteName === routename;
@@ -60,16 +62,18 @@ HSV_TT.ui.getStops = function(routename) {
 	var orderedStops = _stops.sort(function(a,b) {
 		return a.properties.Stop_Sequence-b.properties.Stop_Sequence;
 	});
-	/*
+	/ *
 	for (var i = 0; i < _stops.length; i++) {
 		console.log(orderedStops[i].properties.stop_location + " : " + orderedStops[i].properties.stop_sequence + " //: " + orderedStops[i].properties.geo_point_2d[0]);
-	}*/
+	}* /
     return _stops;	
 }
-
+*/
+/*
 HSV_TT.ui.getRoutes = function(routename) {
 	var _routes = $.grep(allRoutes.features, function(o, i) {
 		return o.properties.RouteName === routename;
 	});
     return _routes;	
 }
+*/

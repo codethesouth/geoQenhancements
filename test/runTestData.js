@@ -3,9 +3,9 @@ var recArray = require('recording.json');
 var rta = recArray.recordedTrack;
 
 var options = {
-  //host: 'yourServer.com',
-  host: ,
-  //port: 5000, //if you are using a non-standard port number
+  host: 'alrescha',
+  //host: ,
+  port: 5000, //if you are using a non-standard port number
   port: ,
   path: '/api/v1/trolly/0/location',
   headers: {'Content-Type' : 'application/json'},
