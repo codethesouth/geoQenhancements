@@ -42,8 +42,10 @@ var shuttleIcon = L.Icon.Default.extend({
 	}
   });
   
+var destCoordinates = [ 34.729991, -86.586338 ];
+
 HSV_TT.map.init = function() { 
-  map = L.map('transitMap').setView([34.715973, -86.690556], 15);
+  map = L.map('transitMap').setView( destCoordinates, 15);
   var stopIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/stopIcon4.png',
@@ -54,6 +56,9 @@ HSV_TT.map.init = function() {
 	}
 	
   });
+  
+  var marker = L.marker( destCoordinates ).addTo(map);
+  marker.bindPopup("<b>DESTINATION:</b><br>AL.com Office").openPopup();
   
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
