@@ -1,0 +1,9 @@
+scratch/
+node_modules
+
+test.js
+*.txt
+runTransitPlayback.js
+public/js/recording.json
+node_modules/recording.json
+

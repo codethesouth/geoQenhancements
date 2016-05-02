@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/_header.ejs %>
+    <!--script type="text/javascript">
+      google.maps.event.addDomListener(window, 'load', initializeMap);
+    </script-->
+  </head>
+  <body>
+    <div id='contentHead'>
+	  <div id='logo'><img src='/images/HAHLogo.png'></div>
+      <div id='headerText'>	  
+	    <h1>Hop Around Huntsville</h1>
+		<div id="contentBody">
+			<div id='schedule'>
+			  On the half hour 
+			  5pm 'til Midnight<br>
+			  Fridays and Saturdays
+	        </div>
+	    </div>
+	  </div>
+	  <div id='menu'>
+	  	
+	  	<% include ../partials/_menuPanel.ejs %>
+	  </div>
+	</div>
+	<div id='slideMenu' class='closed'>
+      <% include ../partials/_menuIcon.ejs %>  
+	  <% include ../partials/_menuPanel.ejs %>
+	</div>
+    <div id='container'>
+      <div id="transitMap"></div>
+	</div>
+	<div id='content'>  
+	  <div id="contentBody">
+			<div id='disPage'>
+			  Your access and/or use of this site signifies that you agree to the <b><u>terms of use</u></b>
+	        </div>
+	  </div>
+	</div>
+	<div id='footer'>
+	  <% include ../partials/_footer.ejs %>
+	</div>
+	<div id='glass'></div>
+	<div id='menuPopup'>
+	  <img src='/images/menuClose.png'/>
+	  <% include ../partials/_stopSchedule.ejs %>
+	  <% include ../partials/_notAvailable.ejs %> 
+	  <% include ../partials/_about.ejs %>
+	  <% include ../partials/_sponsors.ejs %>
+	  <% include ../partials/_terms.ejs %> 
+    <script>
+	  HSV_TT.map.init();
+      HSV_TT.sockets.init();
+	</script>
+ 	
+  </body>
+</html>
