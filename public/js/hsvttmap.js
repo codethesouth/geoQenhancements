@@ -42,14 +42,14 @@ var shuttleIcon = L.Icon.Default.extend({
 	}
   });
   
-HSV_TT.map.init = function() {	  
-  map = L.map('transitMap').setView([34.731, -86.588], 15);
+HSV_TT.map.init = function() { 
+  map = L.map('transitMap').setView([34.715973, -86.690556], 15);
   var stopIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/stopIcon4.png',
       iconSize: [13, 15],
-	  iconAnchor: [6, 15],
-	  popupAnchor: [0, -15],
+	    iconAnchor: [6, 15],
+	    popupAnchor: [0, -15],
       shadowSize: [0,0]	  
 	}
 	
