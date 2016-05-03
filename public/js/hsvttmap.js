@@ -58,10 +58,16 @@ HSV_TT.map.init = function() {
   });
   
   var marker = L.circle( destCoordinates, 50, {
-    "color" : "red",
-    "fill" : "#F03",
-    "fillOpacity": 0.3
-  } ).addTo(map);
+      "color" : "red",
+      "fill" : "#F03",
+      "fillOpacity": 0.3
+  } ).on("click", function() {
+      // open in new tab
+      var tab = window.open("pano_view/index.html", '_blank');
+      tab.focus();
+  }).addTo(map);
+  
+  
   
   //marker.bindPopup("<b>DESTINATION:</b><br>AL.com Office").openPopup();
   
