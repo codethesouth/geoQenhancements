@@ -6,7 +6,7 @@ var options = {
   host: 'localhost',
   //host: ,
   port: 5000, //if you are using a non-standard port number
-  path: 'api/v1/setlocation',
+  path: '/api/v1/setlocation',
   headers: {'Content-Type' : 'application/json'},
   method: 'POST'
 };
@@ -36,7 +36,7 @@ var i = 0;
 var len = rta.length; 
 (function myLoop (i) {          
    setTimeout(function () {   
-      callit(999, rta[i][0],rta[i][1]);          //  your code here                
+      callit("999", rta[i][0],rta[i][1]);          //  your code here                
       if ((++i) - len) myLoop(i);      //  decrement i and call myLoop again if i > 0
    }, 2000)
 })(i); 
