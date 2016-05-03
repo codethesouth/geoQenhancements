@@ -251,7 +251,7 @@ a:hover, a:active {
 
 .alert-danger {
 	margin-bottom: 0 !important;
-	color:blue;
+	color: blue;
 }
 
 @media all and (max-width: 650px) {
