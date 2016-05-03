@@ -32,5 +32,9 @@
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node hsvGeoQ.js"
+  },
+  "main": "hsvGeoQ.js"
 }
