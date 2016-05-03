@@ -19,7 +19,7 @@ var trolleyHomeLocation = {latlng: {lat: 34.73689, lng: -86.59192} };
 var locationOfQuery = null;
 var trolleyIcon = L.Icon.Default.extend({
 	options: {
-	  iconUrl: '/images/trolleyIcon3.png',
+	  iconUrl: '/images/firetruck.png',
       iconSize: [25, 30],
 	  iconAnchor: [12, 30],
 	  popupAnchor: [1, -30]  
@@ -27,7 +27,7 @@ var trolleyIcon = L.Icon.Default.extend({
   });
 var testIcon = L.Icon.Default.extend({
 	options: {
-	  iconUrl: '/images/testIcon.png',
+	  iconUrl: '/images/ambulance_160.png',
       iconSize: [15, 20],
 	  iconAnchor: [7, 20],
 	  popupAnchor: [1, -20]  
@@ -35,7 +35,7 @@ var testIcon = L.Icon.Default.extend({
   });
 var shuttleIcon = L.Icon.Default.extend({
 	options: {
-	  iconUrl: '/images/shuttleIcon.png',
+	  iconUrl: '/images/policecar_160.png',
       iconSize: [25, 30],
 	  iconAnchor: [12, 30],
 	  popupAnchor: [1, -30]  

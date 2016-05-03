@@ -1,5 +1,5 @@
 var http = require('http');
-var recArray = require('recording.json');
+var recArray = require('./recording.json');
 var rta = recArray.recordedTrack;
 
 var options = {
@@ -38,5 +38,5 @@ var len = rta.length;
    setTimeout(function () {   
       callit(rta[i][0],rta[i][1]);          //  your code here                
       if ((++i) - len) myLoop(i);      //  decrement i and call myLoop again if i > 0
-   }, 500)
+   }, 2000)
 })(i); 

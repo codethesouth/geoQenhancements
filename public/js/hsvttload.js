@@ -95,6 +95,7 @@ $(document).ready(function(){
   $(window).resize(HSV_TT.fitWindow);
   
   HSV_TT.fitWindow();
+  
 })
 
 function onMapClick(e) {
@@ -164,4 +165,33 @@ HSV_TT.removeBusMapMarker = function (vid) {
 
 HSV_TT.getBusesOnRoute = function (routeId) {
 // TODO: implement	  
+};
+
+function updateLocations() {
+   if( /*trolleyOn*/ true ) {
+      //socket.emit('get location');
+      $.getJSON('api/v1/vehicle/locations', function(data){
+        //console.log('lat = ' + data[0].lat + " long = " + data[0].long + " : id = " + data[0].id);
+		updateMap(data);
+      });
+   } 
+};   
+    //}
+    //console.log('Location request sent');
+  //};
+var interval = setInterval(function(){updateLocations();}, 2000);
+
+function updateMap(data) {
+    //console.log(location['lat'] + ':' + location['lng']);
+	for (var i = 0, len = data.length; i < len; i++) {
+      if(data[i].lat && data[i].long) {		
+	    location.lat = data[i].lat;
+	    location.lng = data[i].long;
+	    HSV_TT.map.updateLocationMarker(data[i].id, location);
+	  } else {
+		console.log(location['lat'] + ':' + location['lng'] + " remove marker: " + data[i].id);
+		HSV_TT.map.removeLocationMarker(data[i].id);
+		HSV_TT.removeBusMapMarker(data[i].id);
+	  }
+	}
 };

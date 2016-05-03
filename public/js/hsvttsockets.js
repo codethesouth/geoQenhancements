@@ -50,12 +50,4 @@ HSV_TT.sockets.init = function() {
   
   receiveUpdates();
   
-  //function updateLocation() {
-    //if( /*trolleyOn*/ true ) {
-      //socket.emit('get location');
-	  
-    //}
-    //console.log('Location request sent');
-  //};
-  //var interval = setInterval(function(){updateLocation();}, 2000);
-};
+
