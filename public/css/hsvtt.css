@@ -251,7 +251,32 @@ a:hover, a:active {
 
 .alert-danger {
 	margin-bottom: 0 !important;
-	color: blue;
+}
+.leaflet-bottom.leaflet-right {
+	position: fixed;
+	z-index: 10000;
+}
+.navbar-inverse .navbar-nav>li>a.ui-link {
+	color: #eee;
+}
+.navbar-inverse .navbar-nav>li>a.ui-link:hover {
+	text-decoration: underline;
+}
+.navbar.navbar-inverse {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+.navbar-inverse a.navbar-brand {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.leaflet-marker-icon.leaflet-zoom-animated.leaflet-clickable {
+	width: 60px !important;
+	height: 60px !important;
+}
+.leaflet-marker-icon.leaflet-zoom-animated.leaflet-clickable:first-child {
+	width: 40px !important;
+	height: 60px !important;
 }
 
 @media all and (max-width: 650px) {
