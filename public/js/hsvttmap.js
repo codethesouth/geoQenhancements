@@ -42,7 +42,7 @@ var policeIcon = L.Icon.Default.extend({
 	}
   });
   
-var destCoordinates = [ 34.729991, -86.586338 ];
+var destCoordinates = [ 34.730150630342, -86.5860092639923 ];
 
 HSV_TT.map.init = function() { 
   map = L.map('transitMap').setView( destCoordinates, 15);
@@ -57,8 +57,19 @@ HSV_TT.map.init = function() {
 	
   });
   
-  var marker = L.marker( destCoordinates ).addTo(map);
-  marker.bindPopup("<b>DESTINATION:</b><br>AL.com Office").openPopup();
+  var marker = L.circle( destCoordinates, 50, {
+      "color" : "red",
+      "fill" : "#F03",
+      "fillOpacity": 0.3
+  } ).on("click", function() {
+      // open in new tab
+      var tab = window.open("pano_view/index.html", '_blank');
+      tab.focus();
+  }).addTo(map);
+  
+  
+  
+  //marker.bindPopup("<b>DESTINATION:</b><br>AL.com Office").openPopup();
   
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -160,14 +171,17 @@ HSV_TT.map.updateLocationMarker = function (vid, latlng) {
 	  mm.setLatLng(latlng).update();
 	} else {
 	  if (vid === "0") {
+      console.log(vid);
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new fireIcon()}).addTo(map);
-		mm.bindPopup("Entertainment Trolley");
+		mm.bindPopup("Station 1 Truck 01");
 	  } else if (vid === "999") {
+      console.log(vid);
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new emtIcon()}).addTo(map);
-		mm.bindPopup("Test Vehicle id = " + vid);
+		mm.bindPopup("HSV Hospital EMT = " + vid);
 	  } else {
+      console.log(vid);
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new policeIcon()}).addTo(map);
-		mm.bindPopup("Shuttle bus number " + vid);
+		mm.bindPopup("Car " + vid);
 	  }
 	  HSV_TT.putBusMapMarker(vid, mm); 	  
 	}	
