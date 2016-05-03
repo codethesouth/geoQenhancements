@@ -194,6 +194,24 @@ HSV_TT.map.removeLocationMarker = function(vid) {
 	  map.removeLayer(mm);
 	}
 }
+
+HSV_TT.map.between function(point, floor, ceiling ) {
+	var ret = false;
+	if (point >= floor && point <= ceiling) {
+		ret = true;
+	}
+	return ret;
+} 
+
+HSV_TT.map.contains function(point, bounds) {      //upper left, lower right coordinate
+	var ret = (between(point[0], bounds.se[0],bounds.nw[0]) && between(point[1], bounds.nw[1],bounds.se[1]) );
+	return ret;
+}
+
+HSV_TT.map.setStopBounds function(seq){
+	return rtnBounds = {"nw" : [(geoConst.dtStopArray[seq][0])+.00018,(geoConst.dtStopArray[seq][1])-.00018], 
+                        "se" : [(geoConst.dtStopArray[seq][0])-.00018,(geoConst.dtStopArray[seq][1])+.00018]} 
+};
 /*
 HSV_TT.map.createRouteLayers = function(routeNames) {
 	var obj = {};
