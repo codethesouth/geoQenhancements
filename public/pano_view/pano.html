@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A simple example</title>
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.2/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.pannellum.org/2.2/pannellum.js"></script>
+    <style>
+    #panorama {
+        width: 1900;
+        height: 1000;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="panorama"></div>
+    <script>
+      function getQueryStringValue (key) {
+        return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+      }
+
+
+    pannellum.viewer('panorama', {
+      "panorama": "panos/" + getQueryStringValue("pano"),
+      "autoLoad": true,
+      "yaw": -50.0
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  </head>
+
+  <body>
+
+    <div id="map" style="width: 1900px; height: 1000px"></div>
+    <script>
+        var map = L.map('map').setView([-55, -8], 2);
+
+        var fl1 = L.tileLayer('fl1/{z}/{x}/{y}.png', {
+            minZoom: 2,
+            maxZoom: 4,
+            attribution: 'NuSpatial',
+            tms: true,
+            noWrap: true
+        });
+
+        var fl2 = L.tileLayer('fl2/{z}/{x}/{y}.png', {
+            minZoom: 2,
+            maxZoom: 4,
+            attribution: 'NuSpatial',
+            tms: true,
+            noWrap: true
+        });
+
+        var points1 = [
+          [ "P1", -32.84267, 61.875, "http://localhost:8081/pano.html?pano=P1.png"],
+          [ "P2", -43.707593504052944, -92.63671875, "http://localhost:8081/pano.html?pano=P2.png"],
+          [ "P3", -53.5403073915002, 69.521484375, "http://localhost:8081/pano.html?pano=P3.png"],
+          [ "P4", -47.98992166741417, 42.5390625, "http://localhost:8081/pano.html?pano=P4.png"]
+        ];
+
+        var i = 0;
+        var marker = [];
+
+        for (i = 0; i < points1.length; ++i)
+        {
+          marker[i] = new L.Marker([points1[i][1], points1[i][2]], {
+                          win_url: points1[i][3]
+                      });
+          marker[i].addTo(map);
+          marker[i].on('click', onClick);
+        }
+
+        var points1 = [
+          [ "P4", -47.98992166741417, 42.5390625, "http://localhost:8081/pano.html?pano=P4.png"]
+        ];
+
+        var i = 0;
+        var marker1 = [];
+
+        for (i = 0; i < points1.length; ++i)
+        {
+          marker1[i] = new L.Marker([points1[i][1], points1[i][2]], {
+                          win_url: points1[i][3]
+                      });
+          marker1[i].addTo(map);
+          marker1[i].on('click', onClick);
+        }
+
+        function onClick(e) {
+          window.open(this.options.win_url);
+        }
+
+        marker1.push(fl1);
+
+        var fl1_group =  L.layerGroup(marker).addTo(map);
+        var fl2_group = L.layerGroup(marker1).addTo(map);
+        var baseLayers = {
+            "fl1": fl1_group,
+            "fl2": fl2
+        };
+
+        L.control.layers(baseLayers, {}, {
+          collapsed: false
+        }).addTo(map);
+
+        function onClick2(e) { console.log(e.latlng); }
+        map.on('click', onClick2);
+
+    </script>
+  </body>
+
+</html>
