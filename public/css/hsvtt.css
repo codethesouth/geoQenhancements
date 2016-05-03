@@ -249,6 +249,10 @@ a:hover, a:active {
 	cursor: pointer;
 }
 
+.alert-danger {
+	margin-bottom: 0 !important;
+}
+
 @media all and (max-width: 650px) {
 	#contentHead {
 		margin-left: 3%;
@@ -308,7 +312,7 @@ a:hover, a:active {
 	float: none;
 	width: 60px;
 	height: 60px;
-}	
+	}	
 }
 	
 /*
