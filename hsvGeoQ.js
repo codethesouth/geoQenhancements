@@ -1,6 +1,6 @@
 //Getting all dependencies
 //var express = require('express.io');
-var express = require('express'); // 
+var express = require('express'); //
 var app = express();
 var mongoose = require('mongoose');
 //var postmark = require("postmark")(process.env.POSTMARK_API_KEY);
@@ -53,7 +53,7 @@ var userSchema = new mongoose.Schema({
 });
 var User = mongoose.model('User', userSchema);
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8080));
 
 //Setting directory structure
 app.set('views', __dirname + '/views');
@@ -195,7 +195,7 @@ function checkStops(curPnt) {
 	var advance = false;
 	var fin = false;
 	//while (!advance && !fin) {
-      //var cnt = ns;		
+      //var cnt = ns;
 	for (var i = 0; i < len && !advance; ++i) {
 	  var test_b = geoUtils.setStopBounds(ns - 1);
       //console.log("testing: " + ns);
@@ -204,7 +204,7 @@ function checkStops(curPnt) {
 			advance = (nextStopSeq === i);
 		//} else {
 		//	advance = false;
-		//} 
+		//}
 		if (advance) {
 			pastStopSeq = i;
 	        nextStopSeq = i + 1;
@@ -214,7 +214,7 @@ function checkStops(curPnt) {
 	        io.emit('next stop', data);
 			return;
 		}
-		
+
 	  } else {
 		  ns = ns < len ? ++ns : 1;
 		  //console.log("next test: " + ns);
@@ -287,23 +287,23 @@ io.sockets.on('connection', function(socket) {
 	console.log("id: " + socket.id + " address: " + socket.handshake.address);
 	//newConnect = new UserConn ( {id: socket.id, cipaddr: socket.handshake.address, connStart: new Date(), connEnd: null} )
 	//newConnect.save();
-	// TODO will need an flag set if the connection is from beacon or client user --- 
-	
+	// TODO will need an flag set if the connection is from beacon or client user ---
+
 	io.emit('made connect', {nextSeq:nextStopSeq,greet:'hello there'}); // sent to client user
-	
-	
+
+
 	//BEACON listerns won't hear anything until sockets on the beacon is implementation-----
 	socket.on('bus:connect', function(data) {
 	  console.log('bus connected: ' + data.id + " : " + data.pw);
-	  console.log('bus connected: ' + socket.id + " address: " + socket.handshake.address);	
+	  console.log('bus connected: ' + socket.id + " address: " + socket.handshake.address);
 	});
 	socket.on('bus:location', function(data) {  //bus:location
 	  console.log('location update: ' + data.id + " : " + data.lat + " - " + data.lon);
 	  locationRecieved(data);
-	  //TODO update vehicles here...;	
+	  //TODO update vehicles here...;
 	});
     //--------------------------------------------------------------------------------------------
-	
+
 	socket.on('get location', function( data ) {
 	//console.log('location update requested ');
     //console.log(allLocations);
