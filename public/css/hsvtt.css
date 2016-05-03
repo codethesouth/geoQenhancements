@@ -53,37 +53,11 @@ a:hover, a:active {
 	z-index: 1100;
 }
 
-#contentHead {
-  background: #eee;
-  margin-left: 15%;
-}
-
-#contentHead h1 {
-	margin-bottom: 0;
-}
-
 #headerText {
   display: inline-block;
   text-align: center;
   position: relative;
   top: -13px;
-}
-
-#contentBody {	
-  /*height: 100px;*/
-  /*width: 100%;*/ 
-  background: #555;  
-}
-
-#disPage {
-  width: 100%;
-  color: #fff;
-  background: #d9201b;
-  text-align: center;
-}
-
-#disPage:hover {
-	cursor: pointer;
 }
 
 .disclaimer {
