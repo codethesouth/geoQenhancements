@@ -63,11 +63,13 @@ HSV_TT.map.init = function() {
       "fillOpacity": 0.3
   } ).on("click", function() {
       // open in new tab
-      var tab = window.open("pano_view/index.html", '_blank');
-      tab.focus();
+      openNewTab("pano_view/index.html");
   }).addTo(map);
   
-  
+  var openNewTab = function(url) {
+    var tab = window.open( url, '_blank');
+      tab.focus();
+  };  
   
   //marker.bindPopup("<b>DESTINATION:</b><br>AL.com Office").openPopup();
   
