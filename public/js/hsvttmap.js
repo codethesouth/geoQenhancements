@@ -20,7 +20,7 @@ var locationOfQuery = null;
 var fireIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/firetruck.png',
-      iconSize: [25, 30],
+      iconSize: [25, 25],
 	  iconAnchor: [12, 30],
 	  popupAnchor: [1, -30]  
 	}
@@ -28,7 +28,7 @@ var fireIcon = L.Icon.Default.extend({
 var emtIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/ambulance_160.png',
-      iconSize: [15, 20],
+      iconSize: [15, 10],
 	  iconAnchor: [7, 20],
 	  popupAnchor: [1, -20]  
 	}
@@ -36,7 +36,7 @@ var emtIcon = L.Icon.Default.extend({
 var policeIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/policecar_160.png',
-      iconSize: [25, 30],
+      iconSize: [15, 10],
 	  iconAnchor: [12, 30],
 	  popupAnchor: [1, -30]  
 	}
@@ -197,7 +197,7 @@ HSV_TT.map.removeLocationMarker = function(vid) {
 	}
 }
 
-HSV_TT.map.between function(point, floor, ceiling ) {
+HSV_TT.map.between = function(point, floor, ceiling ) {
 	var ret = false;
 	if (point >= floor && point <= ceiling) {
 		ret = true;
@@ -205,15 +205,15 @@ HSV_TT.map.between function(point, floor, ceiling ) {
 	return ret;
 } 
 
-HSV_TT.map.contains function(point, bounds) {      //upper left, lower right coordinate
+HSV_TT.map.contains = function(point, bounds) {      //upper left, lower right coordinate
 	var ret = (between(point[0], bounds.se[0],bounds.nw[0]) && between(point[1], bounds.nw[1],bounds.se[1]) );
 	return ret;
 }
 
-HSV_TT.map.setStopBounds function(seq){
-	return rtnBounds = {"nw" : [(geoConst.dtStopArray[seq][0])+.00018,(geoConst.dtStopArray[seq][1])-.00018], 
-                        "se" : [(geoConst.dtStopArray[seq][0])-.00018,(geoConst.dtStopArray[seq][1])+.00018]} 
-};
+//HSV_TT.map.setStopBounds function(seq){
+//	return rtnBounds = {"nw" : [(geoConst.dtStopArray[seq][0])+.00018,(geoConst.dtStopArray[seq][1])-.00018], 
+//                        "se" : [(geoConst.dtStopArray[seq][0])-.00018,(geoConst.dtStopArray[seq][1])+.00018]} 
+//};
 /*
 HSV_TT.map.createRouteLayers = function(routeNames) {
 	var obj = {};
