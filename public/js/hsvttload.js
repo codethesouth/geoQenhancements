@@ -171,7 +171,7 @@ function updateLocations() {
    if( /*trolleyOn*/ true ) {
       //socket.emit('get location');
       $.getJSON('api/v1/vehicle/locations', function(data){
-        //console.log('lat = ' + data[0].lat + " long = " + data[0].long + " : id = " + data[0].id);
+		  
 		updateMap(data);
       });
    } 
