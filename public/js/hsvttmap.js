@@ -172,13 +172,13 @@ HSV_TT.map.updateLocationMarker = function (vid, latlng) {
 	} else {
 	  if (vid === "0") {
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new fireIcon()}).addTo(map);
-		mm.bindPopup("Entertainment Trolley");
+		mm.bindPopup("Station 1 Truck 01");
 	  } else if (vid === "999") {
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new emtIcon()}).addTo(map);
-		mm.bindPopup("Test Vehicle id = " + vid);
+		mm.bindPopup("HSV Hospital EMT = " + vid);
 	  } else {
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new policeIcon()}).addTo(map);
-		mm.bindPopup("Shuttle bus number " + vid);
+		mm.bindPopup("Car " + vid);
 	  }
 	  HSV_TT.putBusMapMarker(vid, mm); 	  
 	}	
