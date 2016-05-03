@@ -6,7 +6,7 @@ var options = {
   host: 'localhost',
   //host: ,
   port: 5000, //if you are using a non-standard port number
-  path: '/api/v1/trolly/0/location',
+  path: 'api/v1/setlocation',
   headers: {'Content-Type' : 'application/json'},
   method: 'POST'
 };

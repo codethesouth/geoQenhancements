@@ -110,9 +110,10 @@ app.post('/api/v1/account', function(req, res) {
 
 
 //Adds location
-app.post('/api/v1/trolly/:id/location', function(req, res) {
+app.post('/api/v1/setlocation', function(req, res) {
   var returnStr = "location api called ";
-  var transitId = req.params.id;
+  //var transitId = req.params.id;
+  var transitId = req.body.id;
   var vehicleFound = false;
   for(var i = 0; i < vehicles.length; i++) {
     if(vehicles[i]['id']==transitId) {
