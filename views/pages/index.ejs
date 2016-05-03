@@ -7,28 +7,13 @@
 			</script-->
 	</head>
 	<body>
-			<div id='contentHead'>
-					<div id='logo'><img src='#'>
-					</div>
-					<div id='headerText'>
-							<h1>GEOHackHSV</h1>
-					</div>
-					<div id='menu'>
-							<% include ../partials/_menuPanel.ejs %>
-					</div>
-			</div>
-			<div id='slideMenu' class='closed'>
-					<% include ../partials/_menuIcon.ejs %>
-							<% include ../partials/_menuPanel.ejs %>
-			</div>
+			<% include ../partials/_menuBar.ejs %>
 			<div id='container'>
 					<div id="transitMap"></div>
 			</div>
 			<div id='content'>
-					<div id="contentBody">
-							<div id='disPage'>
-									Your access and/or use of this site signifies that you agree to the <b><u>terms of use</u></b>
-							</div>
+					<div class="alert alert-danger text-center" role="alert">
+							Your access and/or use of this site signifies that you agree to the <b><u>terms of use</u></b>
 					</div>
 			</div>
 			<div id='footer'>
@@ -38,10 +23,9 @@
 			<div id='menuPopup'>
 					<img src='/images/menuClose.png' />
 					<% include ../partials/_stopSchedule.ejs %>
-					<% include ../partials/_notAvailable.ejs %>
 					<% include ../partials/_about.ejs %>
-					<% include ../partials/_sponsors.ejs %>
 					<% include ../partials/_terms.ejs %>
+			</div>
 					<script>
 							HSV_TT.map.init();
 							//HSV_TT.sockets.init();

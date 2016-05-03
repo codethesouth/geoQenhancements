@@ -6,7 +6,6 @@ var options = {
   host: 'alrescha',
   //host: ,
   port: 5000, //if you are using a non-standard port number
-  port: ,
   path: '/api/v1/trolly/0/location',
   headers: {'Content-Type' : 'application/json'},
   method: 'POST'
