@@ -171,12 +171,15 @@ HSV_TT.map.updateLocationMarker = function (vid, latlng) {
 	  mm.setLatLng(latlng).update();
 	} else {
 	  if (vid === "0") {
+      console.log(vid);
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new fireIcon()}).addTo(map);
 		mm.bindPopup("Station 1 Truck 01");
 	  } else if (vid === "999") {
+      console.log(vid);
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new emtIcon()}).addTo(map);
 		mm.bindPopup("HSV Hospital EMT = " + vid);
 	  } else {
+      console.log(vid);
 		var mm = L.marker([latlng.lat,latlng.lng], {icon: new policeIcon()}).addTo(map);
 		mm.bindPopup("Car " + vid);
 	  }
