@@ -36,7 +36,7 @@ var i = 0;
 var len = rta.length; 
 (function myLoop (i) {          
    setTimeout(function () {   
-      callit(rta[i][0],rta[i][1]);          //  your code here                
+      callit(rta[i][999],rta[i][1]);          //  your code here                
       if ((++i) - len) myLoop(i);      //  decrement i and call myLoop again if i > 0
    }, 2000)
 })(i); 

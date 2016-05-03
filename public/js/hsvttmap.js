@@ -17,7 +17,7 @@ var nextStopMark = null;
 				  
 var trolleyHomeLocation = {latlng: {lat: 34.73689, lng: -86.59192} };
 var locationOfQuery = null;
-var trolleyIcon = L.Icon.Default.extend({
+var fireIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/firetruck.png',
       iconSize: [25, 30],
@@ -25,7 +25,7 @@ var trolleyIcon = L.Icon.Default.extend({
 	  popupAnchor: [1, -30]  
 	}
   });
-var testIcon = L.Icon.Default.extend({
+var emtIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/ambulance_160.png',
       iconSize: [15, 20],
@@ -33,7 +33,7 @@ var testIcon = L.Icon.Default.extend({
 	  popupAnchor: [1, -20]  
 	}
   });
-var shuttleIcon = L.Icon.Default.extend({
+var policeIcon = L.Icon.Default.extend({
 	options: {
 	  iconUrl: '/images/policecar_160.png',
       iconSize: [25, 30],
@@ -160,13 +160,13 @@ HSV_TT.map.updateLocationMarker = function (vid, latlng) {
 	  mm.setLatLng(latlng).update();
 	} else {
 	  if (vid === "0") {
-		var mm = L.marker([latlng.lat,latlng.lng], {icon: new trolleyIcon()}).addTo(map);
+		var mm = L.marker([latlng.lat,latlng.lng], {icon: new fireIcon()}).addTo(map);
 		mm.bindPopup("Entertainment Trolley");
 	  } else if (vid === "999") {
-		var mm = L.marker([latlng.lat,latlng.lng], {icon: new testIcon()}).addTo(map);
+		var mm = L.marker([latlng.lat,latlng.lng], {icon: new emtIcon()}).addTo(map);
 		mm.bindPopup("Test Vehicle id = " + vid);
 	  } else {
-		var mm = L.marker([latlng.lat,latlng.lng], {icon: new shuttleIcon()}).addTo(map);
+		var mm = L.marker([latlng.lat,latlng.lng], {icon: new policeIcon()}).addTo(map);
 		mm.bindPopup("Shuttle bus number " + vid);
 	  }
 	  HSV_TT.putBusMapMarker(vid, mm); 	  
